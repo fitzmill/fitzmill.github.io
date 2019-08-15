@@ -1,29 +1,31 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="root" class="uk-light uk-background-secondary uk-overflow-auto">
+    <nav id="nav" class="uk-navbar-container uk-margin-bottom" uk-navbar>
+      <div class="uk-navbar-center">
+        <ul class="uk-navbar-nav">
+          <li class="uk-active"><a href="#">Resume</a></li>
+          <li><a href="https://myanimelist.net/animelist/fitzmill">
+            MyAnimeList
+          </a></li>
+          <li><a href="https://www.github.com/fitzmill">
+            <span class="uk-icon" uk-icon="icon: github"></span>
+          </a></li>
+          <li><a href="https://www.linkedin.com/in/sean-fitzgerald-66b14b127/">
+            <span class="uk-icon" uk-icon="icon: linkedin"></span>
+          </a></li>
+        </ul>
+      </div>
+    </nav>
+    <router-view />
   </div>
 </template>
 
 <style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  html, body, #root {
+    height: 100%;
   }
-}
+  #nav {
+    background-color: #333;
+  }
 </style>
+
