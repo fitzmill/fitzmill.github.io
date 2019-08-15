@@ -2,7 +2,7 @@
   <div>
     <div v-for="(inv, index) in involvement" :key="index">
       <div uk-grid>
-        <div class="uk-width-expand">
+        <div class="uk-width-expand@s">
           <h3 class="uk-margin-remove">{{inv.title}}</h3>
           <span class="uk-margin-left">{{inv.desc}}</span>
         </div>
