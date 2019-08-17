@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import UIkit from 'uikit';
+import UIkit from 'uikit/dist/js/uikit.min.js';
 import Icons from 'uikit/dist/js/uikit-icons.min';
 import 'uikit/dist/css/uikit.min.css';
 import './registerServiceWorker';

@@ -44,7 +44,7 @@
 
 <script lang="ts">
 import { Component, Vue, Provide } from 'vue-property-decorator';
-import UIkit from 'uikit';
+import UIkit from 'uikit/dist/js/uikit.min.js';
 
 @Component({
   components: {
