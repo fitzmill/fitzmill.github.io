@@ -9,32 +9,32 @@
       </div>
     </div>
     <ul class="uk-list" uk-accordion="multiple: true">
-      <li>
+      <li id="education-section">
         <a class="uk-accordion-title" href="#">Education</a>
         <hr class="uk-divider-small uk-margin-remove" />
         <div class="uk-accordion-content section">
-          <Education />
+          <Education v-if="educationShown" />
         </div>
       </li>
-      <li>
+      <li id="experience-section">
         <a class="uk-accordion-title" href="#">Experience</a>
         <hr class="uk-divider-small uk-margin-remove" />
         <div class="uk-accordion-content section">
-          <Experience />
+          <Experience v-if="experienceShown" />
         </div>
       </li>
-      <li>
+      <li id="involvement-section">
         <a class="uk-accordion-title" href="#">Involvement</a>
         <hr class="uk-divider-small uk-margin-remove" />
         <div class="uk-accordion-content section">
-          <Involvement />
+          <Involvement v-if="involvementShown" />
         </div>
       </li>
-      <li>
+      <li id="awards-section">
         <a class="uk-accordion-title" href="#">Awards</a>
         <hr class="uk-divider-small uk-margin-remove" />
         <div class="uk-accordion-content section">
-          <Awards />
+          <Awards v-if="awardsShown" />
         </div>
       </li>
     </ul>
@@ -44,21 +44,38 @@
 
 <script lang="ts">
 import { Component, Vue, Provide } from 'vue-property-decorator';
-import Education from '../components/Education.vue';
-import Experience from '../components/Experience.vue';
-import Involvement from '../components/Involvement.vue';
-import Awards from '../components/Awards.vue';
+import UIkit from 'uikit';
 
 @Component({
   components: {
-    Education,
-    Experience,
-    Involvement,
-    Awards
+    Education: () => import('../components/Education.vue'),
+    Experience: () => import('../components/Experience.vue'),
+    Involvement: () => import('../components/Involvement.vue'),
+    Awards: () => import('../components/Awards.vue')
   }
 })
 export default class Resume extends Vue {
   private profilePhoto = require('../assets/profile-photo.jpeg');
+
+  private educationShown: boolean = false;
+  private experienceShown: boolean = false;
+  private involvementShown: boolean = false;
+  private awardsShown: boolean = false;
+
+  private mounted() {
+    UIkit.util.on('#education-section', 'beforeshow', () => {
+      this.educationShown = true;
+    });
+    UIkit.util.on('#experience-section', 'beforeshow', () => {
+      this.experienceShown = true;
+    });
+    UIkit.util.on('#involvement-section', 'beforeshow', () => {
+      this.involvementShown = true;
+    });
+    UIkit.util.on('#awards-section', 'beforeshow', () => {
+      this.awardsShown = true;
+    });
+  }
 }
 </script>
 
