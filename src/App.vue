@@ -4,7 +4,7 @@
       <div class="uk-navbar-center">
         <ul class="uk-navbar-nav">
           <li class="uk-active"><a href="#">Resume</a></li>
-          <li><a href="https://myanimelist.net/animelist/fitzmill">
+          <li><a href="https://myanimelist.net/animelist/falldownrunning">
             MyAnimeList
           </a></li>
           <li><a href="https://www.github.com/fitzmill">
