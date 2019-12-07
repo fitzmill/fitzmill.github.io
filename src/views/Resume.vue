@@ -10,28 +10,28 @@
     </div>
     <ul class="uk-list" uk-accordion="multiple: true">
       <li id="education-section">
-        <a class="uk-accordion-title" href="#">Education</a>
+        <a class="uk-accordion-title" href="#">Education {{educationShown ? '-' : '+'}}</a>
         <hr class="uk-divider-small uk-margin-remove" />
         <div class="uk-accordion-content section">
           <Education v-if="educationShown" />
         </div>
       </li>
       <li id="experience-section">
-        <a class="uk-accordion-title" href="#">Experience</a>
+        <a class="uk-accordion-title" href="#">Experience {{experienceShown ? '-' : '+'}}</a>
         <hr class="uk-divider-small uk-margin-remove" />
         <div class="uk-accordion-content section">
           <Experience v-if="experienceShown" />
         </div>
       </li>
       <li id="involvement-section">
-        <a class="uk-accordion-title" href="#">Involvement</a>
+        <a class="uk-accordion-title" href="#">Involvement {{involvementShown ? '-' : '+'}}</a>
         <hr class="uk-divider-small uk-margin-remove" />
         <div class="uk-accordion-content section">
           <Involvement v-if="involvementShown" />
         </div>
       </li>
       <li id="awards-section">
-        <a class="uk-accordion-title" href="#">Awards</a>
+        <a class="uk-accordion-title" href="#">Awards {{awardsShown ? '-' : '+'}}</a>
         <hr class="uk-divider-small uk-margin-remove" />
         <div class="uk-accordion-content section">
           <Awards v-if="awardsShown" />
@@ -66,14 +66,26 @@ export default class Resume extends Vue {
     UIkit.util.on('#education-section', 'beforeshow', () => {
       this.educationShown = true;
     });
+    UIkit.util.on('#education-section', 'beforehide', () => {
+      this.educationShown = false;
+    });
     UIkit.util.on('#experience-section', 'beforeshow', () => {
       this.experienceShown = true;
+    });
+    UIkit.util.on('#experience-section', 'beforehide', () => {
+      this.experienceShown = false;
     });
     UIkit.util.on('#involvement-section', 'beforeshow', () => {
       this.involvementShown = true;
     });
+    UIkit.util.on('#involvement-section', 'beforehide', () => {
+      this.involvementShown = false;
+    });
     UIkit.util.on('#awards-section', 'beforeshow', () => {
       this.awardsShown = true;
+    });
+    UIkit.util.on('#awards-section', 'beforehide', () => {
+      this.awardsShown = false;
     });
   }
 }
