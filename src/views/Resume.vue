@@ -55,7 +55,7 @@ import UIkit from 'uikit/dist/js/uikit-core.min.js';
   }
 })
 export default class Resume extends Vue {
-  private profilePhoto = require('../assets/profile-photo.jpeg');
+  private profilePhoto = require('../assets/profile-photo.jpg');
 
   private educationShown: boolean = false;
   private experienceShown: boolean = false;
