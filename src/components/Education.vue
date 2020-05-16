@@ -1,6 +1,6 @@
 <template>
-  <div class="uk-container" uk-grid>
-    <img id="unl-icon" class="uk-visible@s" :data-src="unlIcon" width="180" height="150" alt="" uk-img />
+  <div class="uk-flex uk-flex-wrap">
+    <img id="unl-icon" class="uk-visible@s uk-margin-right" :data-src="unlIcon" width="150" height="150" alt="" uk-img />
     <div class="uk-width-expand@s">
       <h3 class="uk-margin-remove">Bachelor of Computer Science</h3>
       <h4 class="uk-margin-remove">Minors in Business and Mathematics</h4>
@@ -29,7 +29,7 @@ export default class Education extends Vue {
 <style lang="less" scoped>
   #unl-icon {
     height: 150px;
-    width: 180px;
+    width: 150px;
   }
 
   #raikes-description {
