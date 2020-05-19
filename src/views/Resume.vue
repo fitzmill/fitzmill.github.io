@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="cover" class="uk-height-viewport uk-width-1-1 uk-position-relative uk-padding">
+    <div id="cover" class="uk-width-1-1 uk-position-relative uk-padding">
       <img id="background" :src="background">
       <div id="heading" class="uk-flex uk-flex-center">
         <div>
@@ -108,6 +108,17 @@ export default class Resume extends Vue {
   private awardsShown: boolean = false;
 
   private mounted() {
+    // Cover height fix for mobile browsers
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    const actualHeight = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${actualHeight}px`);
+    // We listen to the resize event
+    window.addEventListener('resize', () => {
+      // We execute the same script as before
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${actualHeight}px`);
+    });
     UIkit.util.on('#education-section', 'beforeshow', () => {
       this.educationShown = true;
     });
@@ -167,7 +178,9 @@ export default class Resume extends Vue {
   }
 
   #cover {
-    background: rgb(0, 12, 31)
+    background: rgb(0, 12, 31);
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
   }
 
   .section {
