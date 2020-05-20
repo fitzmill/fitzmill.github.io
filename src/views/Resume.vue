@@ -21,13 +21,13 @@
           </ul>
         </div>
       </div>
-      <div id="scroll-down">
-          <h4 class="down-arrow uk-margin-remove">SCROLL</h4>
-          <span class="down-arrow" uk-icon="chevron-down"></span>
-      </div>
+      <a id="scroll-down" href="#about-me" uk-scroll>
+        <h4 class="down-arrow uk-margin-remove">SCROLL</h4>
+        <span class="down-arrow" uk-icon="chevron-down"></span>
+      </a>
     </div>
     <div class="uk-container uk-margin-top">
-      <h2>About Me</h2>
+      <h2 id="about-me">About Me</h2>
       <div class="uk-width-1-2@l uk-width-2-3@s">
         <p>
           I'm a full stack developer and general tech enthusiast. I started programming
@@ -72,17 +72,20 @@
             </p>
           </div>
           <div class="website-preview">
-            <img :src="avalonPreview" width="600">
+            <a href="https://avalon.seanfitzgerald.dev">
+              <img :src="avalonPreview" width="600">
+            </a>
           </div>
         </div>
       </div>
-      <h2>Education</h2>
-      <hr class="header-row" />
-      <Education class="section" />
       <h2>Experience</h2>
       <hr class="header-row" />
       <Experience class="section" />
+      <h2>Education</h2>
+      <hr class="header-row" />
+      <Education class="section" />
       <button id="pdf-btn" class="uk-button uk-align-center uk-margin-bottom" onclick="location.href = 'https://drive.google.com/uc?export=download&id=1d6hK7qzcaAAYWMVmyGfheMmOf_KX18em'">PDF</button>
+      <a id="totop" href="#about-me" uk-totop uk-scroll v-if="showTotop"></a>
     </div>
   </div>
 </template>
@@ -102,10 +105,7 @@ export default class Resume extends Vue {
   private background = require('../assets/website-background.svg');
   private avalonPreview = require('../assets/avalon-preview.png');
 
-  private educationShown: boolean = false;
-  private experienceShown: boolean = false;
-  private involvementShown: boolean = false;
-  private awardsShown: boolean = false;
+  private showTotop = false;
 
   private mounted() {
     // Cover height fix for mobile browsers
@@ -119,30 +119,17 @@ export default class Resume extends Vue {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${actualHeight}px`);
     });
-    UIkit.util.on('#education-section', 'beforeshow', () => {
-      this.educationShown = true;
-    });
-    UIkit.util.on('#education-section', 'beforehide', () => {
-      this.educationShown = false;
-    });
-    UIkit.util.on('#experience-section', 'beforeshow', () => {
-      this.experienceShown = true;
-    });
-    UIkit.util.on('#experience-section', 'beforehide', () => {
-      this.experienceShown = false;
-    });
-    UIkit.util.on('#involvement-section', 'beforeshow', () => {
-      this.involvementShown = true;
-    });
-    UIkit.util.on('#involvement-section', 'beforehide', () => {
-      this.involvementShown = false;
-    });
-    UIkit.util.on('#awards-section', 'beforeshow', () => {
-      this.awardsShown = true;
-    });
-    UIkit.util.on('#awards-section', 'beforehide', () => {
-      this.awardsShown = false;
-    });
+
+    const root = document.getElementById('root');
+    if (root) {
+      root.addEventListener('scroll', () => {
+        if (root.scrollTop > window.innerHeight) {
+          this.showTotop = true;
+        } else {
+          this.showTotop = false;
+        }
+      });
+    }
   }
 }
 </script>
@@ -266,5 +253,14 @@ export default class Resume extends Vue {
   #scroll-down:hover {
     opacity: .7;
     text-decoration: none;
+  }
+
+  #totop {
+    position: absolute;
+    right: 5vw;
+    bottom: 5vh;
+    bottom: calc(var(--vh, 1vh) * 5);
+    background: gray;
+    padding: 10px;
   }
 </style>
