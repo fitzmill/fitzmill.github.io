@@ -1,0 +1,94 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Sean Fitzgerald'
+theme = 'hugo-profile'
+
+[params.navbar]
+disableSearch = true
+
+[params.hero]
+enable = true
+intro = 'Hi, my name is'
+title = 'Sean.'
+subtitle = "I'm a developer and a geek"
+content = "I've messed with computers my whole life. Now I'm lucky enough to do it for a living."
+
+[params.about]
+enable = true
+title = "About me"
+content = """
+I'm a software engineer currently residing in the Seattle area. I'm really passionate about technology.
+Most of my professional experience is in full stack web apps but I've worked with varying kinds of hardware and software in personal/hobby projects.
+Projects using things like Arduinos, Raspberry Pis, IoT tech, all kinds of sensors, machine learning, and a whole bunch more.
+Most of these were part of private hackathons so the projects aren't public, but the important thing is I love using all kinds of tech to solve problems.
+"""
+
+[params.about.skills]
+enable = true
+title = "Here are some technologies I'm proficient or familiar with:"
+items = ["HTML/CSS", "Typescript", "C#", "SQL", "Cosmos Db", "Python", "Unix/Shell"]
+
+[params.experience]
+enable = true
+
+[[params.experience.items]]
+job = "Software Engineer 2"
+company = "Xbox"
+companyUrl = "https://xbox.com"
+date = "Oct 2021 - Present"
+content = """
+I primarily help build and run the support website and all the underlying services including content management, refunds, notifications, and consumer insights.
+My team also regularly gets asked to take on ad-hoc projects not related to customer support such as rewards and assisting in large product launches.
+"""
+
+    [params.experience.items.featuredLink]
+    enable = true
+    name = "View the website"
+    url = "https://support.xbox.com"
+
+[[params.experience.items]]
+job = "Softare Engineer"
+company = "Azure"
+companyUrl = "https://azure.com"
+date = "Aug 2020 - Oct 2021"
+content = """
+I worked on an internal tool in Azure Security for automatically investigating and responding to cybersecurity incidents.
+"""
+
+[[params.experience.items]]
+job = "Software Engineer Intern"
+company = "Microsoft"
+companyUrl = "https://microsoft.com"
+date = "May 2019 - Aug 2019"
+content = """
+I added some asynchronous actions to an internal tool similar to [Logic Apps](https://azure.microsoft.com/en-us/products/logic-apps/).
+Users could require that an action get approval before executing. Before this, actions could only execute automatically and notify someone that
+an action had taken place.
+"""
+
+[[params.experience.items]]
+job = "Software Engineer Intern"
+company = "Spreetail"
+companyUrl = "https://spreetail.com"
+date = "May 2017 - Aug 2017"
+content = """
+I created an Android application to help warehouse workers fulfill orders faster and more reliably.
+Previously the team had been using paper and pencil to fulfill orders,
+this app allowed the workers to communicate progress with one another and record any issues with fulfilling an order.
+"""
+
+[params.education]
+enable = true
+
+[[params.education.items]]
+title = "Bachelor of Science"
+date = "2016 - 2020"
+GPA = "4.0"
+content = """
+Highly selective honors school that gives students specially crafted courses to create a unique educational experience.
+I graduated with High Distinction and minors in Math and Business.
+"""
+
+    [params.education.items.school]
+    name = "University of Nebraska-Lincoln, Raikes School of Computer Science & Management"
+    url = "https://raikes.unl.edu"
